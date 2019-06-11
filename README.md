@@ -1,5 +1,6 @@
 # RxGrpc-kt-extension
 This is a kotlin extension which allows ReactiveX style Grpc Call.
+It also remove Grpc Message Builder boilerplates. 
 
 # Usage
 with rx extension
@@ -8,7 +9,7 @@ val userStub = UserGrpc.newBlockingStub(channel)
 userStub::getUserProfile
   // make it reactive
   .rx {
-      // parameters go here
+      // parameters go here, without Builder boilerplates
       userId = 123
       deviceType = "Android device"
       timeStmp = System.currentTimeMillis()
@@ -26,6 +27,7 @@ without rx extesion
 val userStub = UserGrpc.newBlockingStub(channel)
 try {
   val resp: GetUserProfileResponse = userStub.getUserProfile(
+      //parameters go here, with Builder boilerplates
       GetUserProfileRequestBuilder.newBuilder()
         .setUserId(123)
         .setDeviceType("Android device")
