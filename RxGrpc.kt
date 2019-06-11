@@ -16,7 +16,7 @@ fun <T> Single<T>.async(): Single<T> =
 
 inline fun <reified Q : GeneratedMessageLite<Q, QB>, QB : GeneratedMessageLite.Builder<Q, QB>,
         R : GeneratedMessageLite<R, RB>, RB : GeneratedMessageLite.Builder<R, RB>>
-        ((Q) -> R).rx(block: QB.() -> Unit): Single<R> =
+        ((Q) -> R).rx(block: QB.() -> Unit = { /* default empty block */ }): Single<R> =
         Single.just(
                 Builders.of<QB>(Q::class).apply(block).build()
         ).map(this)
