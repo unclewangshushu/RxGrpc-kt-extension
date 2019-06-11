@@ -7,8 +7,6 @@ import java.lang.reflect.Method
 import kotlin.reflect.KClass
 
 
-//fun <I, O> ((I) -> O).single(param: I): Single<O> = Single.just(param).map(this)
-
 fun <T> Single<T>.async(): Single<T> =
         this.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
