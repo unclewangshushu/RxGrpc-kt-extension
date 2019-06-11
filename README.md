@@ -24,7 +24,7 @@ userStub::getUserProfile
 without rx extesion
 ```kotlin
 val userStub = UserGrpc.newBlockingStub(channel)
-try:
+try {
   val resp: GetUserProfileResponse = userStub.getUserProfile(
       GetUserProfileRequestBuilder.newBuilder()
         .setUserId(123)
@@ -35,7 +35,7 @@ try:
   // no easy threading
   // no easy chaining
   doSomeThing(resp)
-catch (Throwable e) {
+} catch (Throwable e) {
   handleError(e)
 }
 ```
