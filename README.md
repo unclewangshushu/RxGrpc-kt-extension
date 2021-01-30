@@ -1,5 +1,5 @@
 # RxGrpc-kt-extension
-This is a kotlin extension which allows ReactiveX style Grpc Call.
+This is a kotlin extension which allows ReactiveX style gRPC Call.
 
 It also removes Grpc Message Builder boilerplates. 
 
